@@ -1,6 +1,6 @@
 <?php
- include('include/header.php');
- require_once("model/Product_Model.php");
+ include('header.php');
+
 ?>
 	<div class="inner-header">
 		<div class="container">
@@ -20,7 +20,7 @@
 			<div class="main-content">
 				<div class="space60">&nbsp;</div>
 				<div class="row">
-					<!-- <div class="col-sm-3">
+					<div class="col-sm-3">
 						<ul class="aside-menu">
 							<li><a href="#">Typography</a></li>
 							<li><a href="#">Buttons</a></li>
@@ -46,7 +46,7 @@
 							<li><a href="#">Pricing &amp; Data tables</a></li>
 							<li><a href="#">Process Builders</a></li>
 						</ul>
-					</div> -->
+					</div>
 					<div class="col-sm-9">
 						<div class="beta-products-list">
 							<h4>Products Selected</h4>

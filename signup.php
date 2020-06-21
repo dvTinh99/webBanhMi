@@ -18,7 +18,7 @@
 	<div class="container">
 		<div id="content">
 			
-			<form action="#" method="post" class="beta-form-checkout">
+			<form action="mvc/Controller/SignupController.php" method="post" class="beta-form-checkout">
 				<div class="row">
 					<div class="col-sm-3"></div>
 					<div class="col-sm-6">
@@ -48,11 +48,11 @@
 						</div>
 						<div class="form-block">
 							<label for="phone">Password*</label>
-							<input type="text" id="phone" required>
+							<input type="Password" id="phone" required>
 						</div>
 						<div class="form-block">
 							<label for="phone">Re password*</label>
-							<input type="text" id="phone" required>
+							<input type="Password" id="phone" required>
 						</div>
 						<div class="form-block">
 							<button type="submit" class="btn btn-primary">Register</button>

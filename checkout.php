@@ -1,5 +1,6 @@
 <?php 
 include("include/header.php");
+
 ?>
 
 	<div class="inner-header">
@@ -64,22 +65,34 @@ include("include/header.php");
 								<div class="your-order-item">
 									<div>
 									<!--  one item	 -->
+									<?php
+									if (isset($_SESSION["cart"])) {
+										$total = 0;
+										foreach ($_SESSION["cart"] as $value) {
+
+											?>
 										<div class="media">
-											<img width="25%" src="assets/dest/images/shoping1.jpg" alt="" class="pull-left">
+											<img width="25%" class="pull-left" src=<?php echo "image/product/".$value['item_image'] ?> >
 											<div class="media-body">
-												<p class="font-large">Men's Belt</p>
-												<span class="color-gray your-order-info">Color: Red</span>
-												<span class="color-gray your-order-info">Size: M</span>
-												<span class="color-gray your-order-info">Qty: 1</span>
+												<p class="font-large"><?php echo $value['item_name'] ?></p>
+												<span class="color-gray your-order-info">Price: <?php echo $value['item_price'] ?></span>												
+												<span class="color-gray your-order-info">SL:<?php echo $value['iteam_qua'] ?></span>
 											</div>
 										</div>
+
+										<?php
+										$total = $total + ($value['iteam_qua'] * $value['item_price']);
+									}
+								}
+
+										?>
 									<!-- end one item -->
 									</div>
 									<div class="clearfix"></div>
 								</div>
 								<div class="your-order-item">
 									<div class="pull-left"><p class="your-order-f18">Tổng tiền:</p></div>
-									<div class="pull-right"><h5 class="color-black">$235.00</h5></div>
+									<div class="pull-right"><h5 class="color-black">đ<?php echo $total;?></h5></div>
 									<div class="clearfix"></div>
 								</div>
 							</div>
