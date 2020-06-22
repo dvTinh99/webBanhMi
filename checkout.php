@@ -20,7 +20,7 @@ include("include/header.php");
 	<div class="container">
 		<div id="content">
 			
-			<form action="#" method="post" class="beta-form-checkout">
+			<form action="Model/Checkout_Model.php" method="post" class="beta-form-checkout">
 				<div class="row">
 					<div class="col-sm-6">
 						<h4>Đặt hàng</h4>
@@ -28,7 +28,7 @@ include("include/header.php");
 
 						<div class="form-block">
 							<label for="name">Họ tên*</label>
-							<input type="text" id="name" placeholder="Họ tên" required>
+							<input name ="fullname" type="text" id="name" placeholder="Họ tên" required>
 						</div>
 						<div class="form-block">
 							<label>Giới tính </label>
@@ -39,26 +39,27 @@ include("include/header.php");
 
 						<div class="form-block">
 							<label for="email">Email*</label>
-							<input type="email" id="email" required placeholder="expample@gmail.com">
+							<input name ="email" type="email" id="email" required placeholder="expample@gmail.com">
 						</div>
 
 						<div class="form-block">
 							<label for="adress">Địa chỉ*</label>
-							<input type="text" id="adress" placeholder="Street Address" required>
+							<input  name ="address" type="text" id="adress" placeholder="Street Address" required>
 						</div>
 						
 
 						<div class="form-block">
 							<label for="phone">Điện thoại*</label>
-							<input type="text" id="phone" required>
+							<input name ="phone" type="text" id="phone" required>
 						</div>
 						
 						<div class="form-block">
 							<label for="notes">Ghi chú</label>
-							<textarea id="notes"></textarea>
+							<textarea name="note" id="notes"></textarea>
 						</div>
 					</div>
 					<div class="col-sm-6">
+						
 						<div class="your-order">
 							<div class="your-order-head"><h5>Đơn hàng của bạn</h5></div>
 							<div class="your-order-body" style="padding: 0px 10px">
@@ -122,8 +123,10 @@ include("include/header.php");
 								</ul>
 							</div>
 
-							<div class="text-center"><a class="beta-btn primary" href="#">Đặt hàng <i class="fa fa-chevron-right"></i></a></div>
+							<div class="text-center">
+								<input name ="order" type="submit" class="beta-btn primary" value="Đặt hàng"></div>
 						</div> <!-- .your-order -->
+						
 					</div>
 				</div>
 			</form>

@@ -1,3 +1,13 @@
+<?php
+	session_start();
+	if (!isset($_SESSION["admin"])) {
+			echo '<script>alert("No permission")</script>';
+			echo '<script>window.location.href = "http://localhost/WebBanhMi/login.php";</script>';
+
+		}
+
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -41,7 +51,7 @@ tr:nth-child(even) {
 				<div class="pull-right auto-width-right">
 					<ul class="top-details menu-beta l-inline">
 						<li><a href="#"><i class="fa fa-user"></i>Tài khoản</a></li>
-						<li><a href="#">Đăng xuất</a></li>
+						<li><a href="Model/Logout_model.php">Đăng xuất</a></li>
 					</ul>
 				</div>
 				<div class="clearfix"></div>

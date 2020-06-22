@@ -18,7 +18,7 @@
 	<div class="container">
 		<div id="content">
 			
-			<form action="mvc/Controller/SignupController.php" method="post" class="beta-form-checkout">
+			<form action="model/Signup_Model.php" method="post" class="beta-form-checkout">
 				<div class="row">
 					<div class="col-sm-3"></div>
 					<div class="col-sm-6">
@@ -28,34 +28,34 @@
 						
 						<div class="form-block">
 							<label for="email">Email address*</label>
-							<input type="email" id="email" required>
+							<input name="email" type="email" id="email" required>
 						</div>
 
 						<div class="form-block">
 							<label for="your_last_name">Fullname*</label>
-							<input type="text" id="your_last_name" required>
+							<input  name = "fullname" type="text" id="your_last_name" required>
 						</div>
 
 						<div class="form-block">
 							<label for="adress">Address*</label>
-							<input type="text" id="adress" value="Street Address" required>
+							<input name= "address" type="text" id="adress" value="Street Address" required>
 						</div>
 
 
 						<div class="form-block">
 							<label for="phone">Phone*</label>
-							<input type="text" id="phone" required>
+							<input name="phone" type="text" id="phone" required>
 						</div>
 						<div class="form-block">
 							<label for="phone">Password*</label>
-							<input type="Password" id="phone" required>
+							<input name = "pass" type="Password" id="phone" required>
 						</div>
 						<div class="form-block">
 							<label for="phone">Re password*</label>
 							<input type="Password" id="phone" required>
 						</div>
 						<div class="form-block">
-							<button type="submit" class="btn btn-primary">Register</button>
+							<input name ="signup" type="submit" class="btn btn-primary" value="Register">
 						</div>
 					</div>
 					<div class="col-sm-3"></div>
