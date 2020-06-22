@@ -32,6 +32,35 @@ function getAllProducts(){
 	}
 	return $arrProducts ;
 }	
+function adminGetAllProducts(){
+	$arrProducts = array();
+	$conn = Connect();
+	$sql = "SELECT * FROM `products`";
+	$result = $conn->query($sql);
+
+	if ($result->num_rows > 0) {
+										  // output data of each row
+		while($row = $result->fetch_assoc()) {
+			$id = $row["id"];
+			$name =  $row["name"];
+			$id_type = $row["id_type"];
+			$decription= $row["description"];
+			$unit_price= $row["unit_price"];
+			$promotion_price= $row["promotion_price"];
+			$image= $row["image"];
+			$unit= $row["unit"];
+			$new_no = $row["new"];
+			$create= $row["created_at"];
+			$update= $row["updated_at"];
+				//echo "id: " . $row["id"]. " - type: " . $row["id_type"]. " " . $row["image"]. "<br>";
+			$product = new Product_Obj($id,$name,$id_type,$decription,$unit_price,$promotion_price,$image,$unit,$new_no,$create,$update);
+			array_push($arrProducts, $product);
+		}
+	} else {
+		return $arrProducts ;
+	}
+	return $arrProducts ;
+}	
 // function getAllProducts($id_type){
 // 	$arrProducts = array();
 // 	$conn = Connect();

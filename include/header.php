@@ -4,6 +4,18 @@ require_once("./Model/Type_Model.php");
 require_once("./Bean/Cart.php");
 session_start();
 
+if (isset($_GET["action"])) {
+		if ($_GET["action"] == "delete") {
+			foreach ($_SESSION["cart"] as $key => $value) {
+				if ($value["item_id"] == $_GET["id"]) {
+					unset($_SESSION['cart'][$key]) ;
+					echo '<script>alert("item remove")</script>';
+					echo '<script>window.location.reload()</script>';
+				}
+			}
+		}
+	}
+
 if (isset($_POST["addToCart"])) {
 	$item_image = $_POST['item_image'];
 	$item_name = $_POST["item_name"];
@@ -43,6 +55,8 @@ if (isset($_POST["addToCart"])) {
 		);
 		$_SESSION['cart'][0] = $item_array;
 	}
+
+	
 	
 
 }
@@ -53,7 +67,7 @@ if (isset($_POST["addToCart"])) {
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Laravel </title>
+	<title>Bán Bánh </title>
 	<link href='http://fonts.googleapis.com/css?family=Dosis:300,400' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
@@ -81,7 +95,7 @@ if (isset($_POST["addToCart"])) {
 						
 						<?php if (isset($_SESSION["name"]) != ""){ ?>	
 							<li><a href="#"><i class="fa fa-user"></i><?php echo $_SESSION["name"]?></a></li>					
-							<li><a href="login.php">Đăng Xuất</a></li>
+							<li><a href="Model/Logout_model.php">Đăng Xuất</a></li>
 							<?php
 						//session_destroy();
 						}else{
@@ -121,15 +135,22 @@ if (isset($_POST["addToCart"])) {
 								?>)<i class="fa fa-chevron-down"></i></div>
 								<div class="beta-dropdown cart-body">
 									<?php
+									$total = 0;
 									if (isset($_SESSION["cart"])) {
-										$total = 0;
+										
 										foreach ($_SESSION["cart"] as $value) {
 
 											?>
 											<div class="cart-item">
 												<div class="media">
-													<a class="pull-left" href="#"><img width="50" height="50" 
+													<a class="pull-left" href="#">
+														<img width="50" height="50" 
 														src= <?php echo "image/product/".$value['item_image'] ?>
+														></a>
+														<!-- nút xóa -->
+														<a class="pull-right" href=<?php echo"index.php?action=delete&id=".$value['item_id']?>>
+														<img width="20" height="20" 
+														src= "image/button/delete.png"
 														></a>
 														<div class="media-body">
 															<span class="cart-item-title"><?php
@@ -152,9 +173,12 @@ if (isset($_POST["addToCart"])) {
 
 										<div class="cart-caption">
 
-											<div class="cart-total text-right">Tổng tiền: <span class="cart-total-value"><?php 
+											<div class="cart-total text-right">Tổng tiền: <span class="cart-total-value">
+												<?php 
 											echo $total ;
-											?></span></div>
+											?>
+												
+											</span></div>
 											<div class="clearfix"></div>
 
 											<div class="center">

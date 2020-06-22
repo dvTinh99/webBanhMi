@@ -5,6 +5,7 @@ class Cart
 	public $id;
 	public $item_name ;
 	public $item_price;
+	public $image ;
 	public $sl =1 ;
 
 	public function setItem_name($item_name){

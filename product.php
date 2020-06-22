@@ -5,7 +5,10 @@
       $id = $_GET["id"];
       $pro = getProduct($id);
       //print_r($pro);
+   
+   
    }
+
 ?>
 	<div class="inner-header">
 		<div class="container">
@@ -25,7 +28,7 @@
 		<div id="content">
 			<div class="row">
 				<div class="col-sm-9">
-
+					<form action="" method="POST">
 					<div class="row">
 						<div class="col-sm-4">
 							<img src=<?php echo "image/product/".$pro->image ?>>
@@ -48,35 +51,16 @@
 
 							<p>Options:</p>
 							<div class="single-item-options">
-								<select class="wc-select" name="size">
-									<option>Size</option>
-									<option value="XS">XS</option>
-									<option value="S">S</option>
-									<option value="M">M</option>
-									<option value="L">L</option>
-									<option value="XL">XL</option>
-								</select>
-								<select class="wc-select" name="color">
-									<option>Color</option>
-									<option value="Red">Red</option>
-									<option value="Green">Green</option>
-									<option value="Yellow">Yellow</option>
-									<option value="Black">Black</option>
-									<option value="White">White</option>
-								</select>
-								<select class="wc-select" name="color">
-									<option>Qty</option>
-									<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>
-									<option value="5">5</option>
-								</select>
-								<a class="add-to-cart" href="#"><i class="fa fa-shopping-cart"></i></a>
+								<input type="hidden" name="item_image" value=<?php echo $pro->image ?>>
+								<input type="hidden" name="item_name" value=<?php echo $pro->name ?>>
+								<input type="hidden" name="item_price" value=<?php echo $pro->unit_price ?>>
+								<input type="hidden" name="item_id" value=<?php echo $pro->id ?>>
+								<input class="add-to-cart" type="submit" value="Thêm" name="addToCart">
 								<div class="clearfix"></div>
 							</div>
 						</div>
 					</div>
+					</form>
 
 					<div class="space40">&nbsp;</div>
 					<div class="woocommerce-tabs">

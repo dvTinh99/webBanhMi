@@ -1,6 +1,6 @@
 <?php
 require_once("ConnectToDB.php");
-
+session_start();
 
 function checkAdmin($email,$pass){
 	$conn = Connect();
@@ -22,9 +22,13 @@ if (isset($_POST["email"])&&isset($_POST["pass"])) {
 	$pass = $_POST["pass"];
 	$name = checkAdmin($email,$pass);
 	if ($name != "") {
-		session_start();
+		
 		$_SESSION["name"] = $name;
-		$_SESSION["cart"] = array();
+		if (!isset($_SESSION["cart"])) {
+			$_SESSION["cart"] = array();
+			
+		}
+		
 		header("Location: http://localhost/WebBanhMi/index.php");
 	}else{
 		echo "wrongs";

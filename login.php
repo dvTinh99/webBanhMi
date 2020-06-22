@@ -1,6 +1,6 @@
 <?php 
 	include("include/header.php");
-	session_destroy();
+	//session_destroy();
 ?>
 	<div class="inner-header">
 		<div class="container">
