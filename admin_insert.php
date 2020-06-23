@@ -5,7 +5,7 @@ include "admin_include/header.php";
 <div class="inner-header">
 	<div class="container">
 		<div class="pull-left">
-			<h6 class="inner-title">Sản phẩm</h6>
+			<h6 class="inner-title">Thêm Sản phẩm</h6>
 		</div>
 <!-- 			<div class="pull-right">
 				<div class="beta-breadcrumb font-large">
@@ -65,8 +65,8 @@ include "admin_include/header.php";
 					<td><p>Loại</p></td>
 					<td>
 						<select name="unit" id="cars">
-							<option value="volvo">Hộp</option>
-							<option value="saab">Cái</option>
+							<option value="hộp">Hộp</option>
+							<option value="cái">Cái</option>
 						</select>
 					</td>
 				</tr>

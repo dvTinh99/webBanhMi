@@ -46,9 +46,10 @@ if (isset($_POST["email"])&&isset($_POST["pass"])) {
 		
 		header("Location: http://localhost/WebBanhMi/admin_index.php");
 	}else{
-		$name=checkUser($email,$pass);
-		if ($name != "") {
-		$_SESSION["name"] = $name;
+		$name1=checkUser($email,$pass);
+		if ($name1 != "") {
+		$_SESSION["name"] = $name1;
+		
 		if (!isset($_SESSION["cart"])) {
 			$_SESSION["cart"] = array();
 			

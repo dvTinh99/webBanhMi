@@ -43,16 +43,26 @@ require_once('model/Product_Model.php');
 			<div class="row">
 				<div class="col-sm-12">
 					<div class="beta-products-list">
+						<?php
+							require_once('Model/Product_Model.php');
+							if (isset($_GET["search"])) {
+								$search = $_GET["search"] ;
+								$arr = searchProduct($search);
+							}else{
+								$arr = getAllProducts();
+							}
+							
+						?>
 						<h4>New Products</h4>
+
 						<div class="beta-products-details">
-							<p class="pull-left">438 styles found</p>
+							<p class="pull-left"><?php echo count($arr)?>kết quả</p>
 							<div class="clearfix"></div>
 						</div>
 
 						<div class="row">
 							<?php
-							require_once('Model/Product_Model.php');
-							$arr = getAllProducts();
+							
 							foreach ($arr as $value) {
 										//echo $value->name;
 								?>

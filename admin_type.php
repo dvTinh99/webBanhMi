@@ -5,7 +5,7 @@
 	<div class="inner-header">
 		<div class="container">
 			<div class="pull-left">
-				<h6 class="inner-title">Sản phẩm</h6>
+				<h6 class="inner-title">Loại Sản phẩm</h6>
 			</div>
 <!-- 			<div class="pull-right">
 				<div class="beta-breadcrumb font-large">

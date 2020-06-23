@@ -1,11 +1,13 @@
 <?php
 	include "admin_include/header.php";
-	include "model/Product_Model.php";
+	include "model/User_Model.php";
+
+  $arrUser = getAllUser();
 ?>
 	<div class="inner-header">
 		<div class="container">
 			<div class="pull-left">
-				<h6 class="inner-title">Sản phẩm</h6>
+				<h6 class="inner-title">User</h6>
 			</div>
 <!-- 			<div class="pull-right">
 				<div class="beta-breadcrumb font-large">
@@ -24,34 +26,32 @@
   <tr>
     <th>id</th>
     <th>name</th>
-    <th>id_type</th>
-    <th>description</th>
-    <th>unit_ptice</th>
-    <th>promotion_price</th>
-    <th>image</th>
-    <th>unit</th>
-    <th>new</th>
-    <th>deldete</th>
-    <th>update</th>
+    <th>email</th>
+    <th>PassWord</th>
+    <th>Phone</th>
+    <th>Address</th>
   </tr>
   <?php
-  	$arr = adminGetAllProducts();
-  	foreach ($arr as $value) {
+  	foreach ($arrUser as $value) {
   		# code...
   	
   ?>
   <tr>
     <td><?php echo $value->id ?></td>
-    <td><?php echo$value->name ?></td>
-    <td><?php echo$value->id_type ?></td>
-    <td><?php echo$value->decription ?></td>
-    <td><?php echo$value->unit_price ?></td>
-    <td><?php echo$value->promotion_price ?></td>
-    <td><?php echo$value->image ?></td>
-    <td><?php echo$value->unit ?></td>
-    <td><?php echo$value->new_no ?></td>
-    <td><input type="submit" class="btn btn-danger" value="Danger"></td>
-    <td><input type="submit" class="btn btn-primary" value="Primary"></td>
+    <td><?php echo$value->fullName ?></td>
+    <td><?php echo$value->email ?></td>
+    <td><?php echo$value->pass ?></td>
+    <td><?php echo$value->phone ?></td>
+    <td><?php echo$value->address ?></td>
+    <form method="GET" action="model/Delete_Model.php">
+      <td>
+        <input type="submit" class="btn btn-danger" value="Xóa">
+        <input type="hidden" name="user" value= "delete">
+        <input type="hidden" name="id" value=<?php echo $value->id ?>>
+      </td>
+    </form>
+    
+   <!--  <td><input type="submit" class="btn btn-primary" value="Xửa"></td> -->
     
   </tr>
   <?php

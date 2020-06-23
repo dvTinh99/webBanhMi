@@ -50,7 +50,7 @@ tr:nth-child(even) {
 				
 				<div class="pull-right auto-width-right">
 					<ul class="top-details menu-beta l-inline">
-						<li><a href="#"><i class="fa fa-user"></i>Tài khoản</a></li>
+						<li><a href="admin_index.php"><i class="fa fa-user"></i><?php echo $_SESSION["name"]?></a></li>
 						<li><a href="Model/Logout_model.php">Đăng xuất</a></li>
 					</ul>
 				</div>

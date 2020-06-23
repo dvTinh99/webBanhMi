@@ -93,7 +93,7 @@ if (isset($_POST["addToCart"])) {
 					<ul class="top-details menu-beta l-inline">
 
 						
-						<?php if (isset($_SESSION["name"]) != ""){ ?>	
+						<?php if (isset($_SESSION["name"])){ ?>	
 							<li><a href="#"><i class="fa fa-user"></i><?php echo $_SESSION["name"]?></a></li>					
 							<li><a href="Model/Logout_model.php">Đăng Xuất</a></li>
 							<?php
@@ -118,8 +118,8 @@ if (isset($_POST["addToCart"])) {
 				<div class="pull-right beta-components space-left ov">
 					<div class="space10">&nbsp;</div>
 					<div class="beta-comp">
-						<form role="search" method="get" id="searchform" action="/">
-							<input type="text" value="" name="s" id="s" placeholder="Nhập từ khóa..." />
+						<form role="search" method="get" id="searchform" name="search" action="">
+							<input type="text" value="" name="search" id="s" placeholder="Nhập từ khóa..." />
 							<button class="fa fa-search" type="submit" id="searchsubmit"></button>
 						</form>
 					</div>
