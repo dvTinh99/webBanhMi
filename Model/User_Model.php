@@ -1,5 +1,5 @@
 <?php
-require_once('Bean/User.php');
+
 require_once('ConnectToDB.php');
 
 
@@ -30,10 +30,11 @@ function getAllUser(){
 function getBill(){
 	$arrBill = array();
 	$conn = Connect();
-	$sql = 'SELECT users.full_name, bills.date_order, bill_detail.unit_price 
-	FROM ((bills 
-	INNER JOIN users ON bills.id_customer = users.id) 
-	INNER JOIN bill_detail ON bills.id = bill_detail.id_bill)';
+	$sql = 'SELECT id,name_Cus,total,note,created_at FROM `bills`';
+	// $sql = 'SELECT users.full_name, bills.created_at, bill_detail.unit_price 
+	// FROM ((bills 
+	// INNER JOIN users ON bills.id_customer = users.id) 
+	// INNER JOIN bill_detail ON bills.id = bill_detail.id_bill)';
 //echo $sql;
 	$result = $conn->query($sql);
 
@@ -41,11 +42,12 @@ function getBill(){
 										  // output data of each row
 		while($row = $result->fetch_assoc()) {
 			$Bill = array(
-			//"id" => $row["id"],
+			"id" => $row["id"],
 			//"id_customer" =>  $row["id_customer"],
-				"full_name" => $row["full_name"],
-			"date_order" => $row["date_order"],
-			"total" => $row["unit_price"]
+				"full_name" => $row["name_Cus"],
+			"date_order" => $row["created_at"],
+			"total" => $row["total"],
+			"note" => $row["note"]
 			//"id_product" => $row["id_product"],
 			//"quantity" => $row["quantity"]
 			);
@@ -55,6 +57,27 @@ function getBill(){
 		return $arrBill ;
 	}
 	return $arrBill ;
+}
+function getIdCustomer($email,$phone){
+	
+	$conn = Connect();
+	$sql = "select id from customer WHERE email = '$email' and phone_number ='$phone'";
+	// $sql = 'SELECT users.full_name, bills.created_at, bill_detail.unit_price 
+	// FROM ((bills 
+	// INNER JOIN users ON bills.id_customer = users.id) 
+	// INNER JOIN bill_detail ON bills.id = bill_detail.id_bill)';
+//echo $sql;
+	$result = $conn->query($sql);
+
+	if ($result->num_rows > 0) {
+		while($row = $result->fetch_assoc()) {
+			$id_cus = $row["id"];
+		}
+	return $id_cus ;
+	} else {
+		return "lỗi" ;
+	}
+	return "lỗi" ;
 }
 
 ?>

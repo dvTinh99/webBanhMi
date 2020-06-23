@@ -94,6 +94,7 @@ include("include/header.php");
 								<div class="your-order-item">
 									<div class="pull-left"><p class="your-order-f18">Tổng tiền:</p></div>
 									<div class="pull-right"><h5 class="color-black">đ<?php echo $total;?></h5></div>
+									<input type="hidden" name="total" value= <?php echo $total;?>>
 									<div class="clearfix"></div>
 								</div>
 							</div>

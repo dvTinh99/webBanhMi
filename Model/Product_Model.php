@@ -7,6 +7,9 @@ function getAllProducts(){
 	$arrProducts = array();
 	$conn = Connect();
 	$sql = "SELECT * FROM `products` WHERE new =1 LIMIT 4";
+	// $sql = "SELECT TOP 10 PERCENT *
+ //  FROM products
+ //  ORDER BY unit_price LIMIT 4";
 	$result = $conn->query($sql);
 
 	if ($result->num_rows > 0) {

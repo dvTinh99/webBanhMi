@@ -21,8 +21,6 @@ if (isset($_GET['action'])) {
 	$conn->close();
 	}
 	
-}else{
-	echo "else case";
 }
 
 if (isset($_GET['user'])) {
@@ -40,6 +38,25 @@ if (isset($_GET['user'])) {
 		echo '<script>alert("Error deleting record: " . $conn->error)</script>';
 		//header("Location: http://localhost/WebBanhMi/admin_index.php");
 		echo '<script>window.location.href = "http://localhost/WebBanhMi/admin_user.php"</script> ';
+	}
+
+	$conn->close();
+	}
+	if (isset($_GET['deleteBill'])) {
+	$id= $_GET['id'];
+	
+	$conn = Connect();
+	$sql = "DELETE FROM bills WHERE id= $id ";
+
+	if ($conn->query($sql) === TRUE) {
+		echo '<script>alert("delete thành công")</script>';
+		//header("Location: http://localhost/WebBanhMi/admin_index.php");
+		echo '<script>window.location.href = "http://localhost/WebBanhMi/admin_bill.php"</script> ';
+	} else {
+ // echo "Error deleting record: " . $conn->error;
+		echo '<script>alert("đã có lỗi ")</script>';
+		//header("Location: http://localhost/WebBanhMi/admin_index.php");
+		echo '<script>window.location.href = "http://localhost/WebBanhMi/admin_bill.php"</script> ';
 	}
 
 	$conn->close();

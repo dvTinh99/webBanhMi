@@ -5,7 +5,7 @@ session_start();
 function checkAdmin($email,$pass){
 	$conn = Connect();
 	$sql = "SELECT * FROM `admin` WHERE admin_name = '". $email ."'and password ='". $pass ."'";
-	echo $sql;
+	//echo $sql;
 	$result = $conn->query($sql);
 	if ($result && $result->num_rows > 0) {
 		while($row = $result->fetch_assoc()) {
@@ -13,13 +13,13 @@ function checkAdmin($email,$pass){
 			return $name ;
 		}
 	}else {
-		return $name ;
+		return $name ="" ;
 	}
 }
 function checkUser($email,$pass){
 	$conn = Connect();
 	$sql = "SELECT * FROM `users` WHERE email = '". $email ."'and password ='". $pass ."'";
-	echo $sql;
+	//echo $sql;
 	$result = $conn->query($sql);
 	if ($result && $result->num_rows > 0) {
 		while($row = $result->fetch_assoc()) {
@@ -27,7 +27,7 @@ function checkUser($email,$pass){
 			return $name ;
 		}
 	}else {
-		return $name ;
+		return $name="" ;
 	}
 }
 
@@ -54,11 +54,13 @@ if (isset($_POST["email"])&&isset($_POST["pass"])) {
 			$_SESSION["cart"] = array();
 			
 		}
+		header("Location: http://localhost/WebBanhMi/index.php");
 
 		}
-		header("Location: http://localhost/WebBanhMi/index.php");
+		
 	}
 	echo '<script>alert("Login fail try again")</script>';
+	echo '<script>window.location.href = "http://localhost/WebBanhMi/login.php";</script>';
 }
 
 
