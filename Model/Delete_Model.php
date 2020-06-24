@@ -61,4 +61,23 @@ if (isset($_GET['user'])) {
 
 	$conn->close();
 	}
+
+if (isset($_GET["delete_type"])) {
+		$id = $_GET["id_type"];
+
+		$conn = Connect();
+	$sql = "DELETE FROM type_products WHERE id= $id ";
+		if ($conn->query($sql) === TRUE) {
+		echo '<script>alert("delete thành công")</script>';
+		//header("Location: http://localhost/WebBanhMi/admin_index.php");
+		echo '<script>window.location.href = "http://localhost/WebBanhMi/admin_type.php"</script> ';
+	} else {
+ // echo "Error deleting record: " . $conn->error;
+		echo '<script>alert("Error deleting record: " . $conn->error)</script>';
+		//header("Location: http://localhost/WebBanhMi/admin_index.php");
+		echo '<script>window.location.href = "http://localhost/WebBanhMi/admin_type.php"</script> ';
+	}
+
+	$conn->close();
+	}
 ?>

@@ -7,11 +7,11 @@
 			<div class="pull-left">
 				<h6 class="inner-title">Loại Sản phẩm</h6>
 			</div>
-<!-- 			<div class="pull-right">
+			<div class="pull-right">
 				<div class="beta-breadcrumb font-large">
-					<a href="index.html">Home</a> / <span>Sản phẩm</span>
+					<a href="admin_insert_type.php"><button type="button" class="btn btn-warning">Thêm</button></a>
 				</div>
-			</div> -->
+			</div>
 			<div class="clearfix"></div>
 		</div>
 	</div>
@@ -24,10 +24,9 @@
   <tr>
     <th>id</th>
     <th>name</th>
-    <th>id_type</th>
     <th>description</th>
     
-    <th>image</th>
+    <!-- <th>image</th> -->
     
     <th>deldete</th>
     <th>update</th>
@@ -42,9 +41,20 @@
     <td><?php echo $value->id ?></td>
     <td><?php echo$value->name ?></td>
     <td><?php echo$value->description ?></td>
-    <td><?php echo$value->image ?></td>
-    <td><input type="submit" class="btn btn-danger" value="Danger"></td>
-    <td><input type="submit" class="btn btn-primary" value="Primary"></td>
+    <!-- <td><?php echo$value->image ?></td> -->
+    <form method="GET" action="model/Delete_Model.php">
+      <td>
+        <input type="hidden" name="id_type" value=<?php echo $value->id ?> >
+        <input name ="delete_type" type="submit" class="btn btn-danger" value="Xóa">
+      </td>
+    </form>
+    <form method="POST" action="admin_type_update.php">
+      <td>
+        <input type="hidden" name="id_type" value=<?php echo $value->id ?> >
+        <input type="submit" name="update_type" class="btn btn-primary" value="Sửa">
+      </td>
+    </form>
+    
     
   </tr>
   <?php

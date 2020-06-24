@@ -47,7 +47,13 @@ include "admin_include/header.php";
 				</tr>
 				<tr>
 					<td><p>Mô Tả</p></td>
-					<td><input name ="description" type="text" placeholder="Mô Tả"></td>
+					<td>
+					
+							
+							<textarea rows = "5" cols = "60" name = "description" type="text" placeholder="Mô Tả"></textarea>
+					
+						<!-- <input name ="description" type="text" placeholder="Mô Tả"> -->
+					</td>
 				</tr>
 				<tr>
 					<td><p>Giá Tiền</p></td>

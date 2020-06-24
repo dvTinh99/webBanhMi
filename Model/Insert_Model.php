@@ -5,6 +5,25 @@ $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
+//insert type products
+if (isset($_POST["insert_type"])) {
+	$name_type = $_POST["name_type"] ;
+	$description_type = $_POST["description_type"];
+
+	$conn = Connect();
+	$sql = "INSERT INTO type_products (name, description)
+	VALUES ('$name_type','$description_type')";
+
+	if ($conn->query($sql) === TRUE) {
+		echo '<script>alert("insert thành công")</script>';
+		//header("Location: http://localhost/WebBanhMi/admin_index.php");
+		echo '<script>window.location.href = "http://localhost/WebBanhMi/admin_type.php"</script> ';
+	} else {
+		echo "Error: " . $sql . "<br>" . $conn->error;
+
+	}
+}
+
 // Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
 	$name = $_POST['name'] ;
@@ -77,4 +96,6 @@ if ($uploadOk == 0) {
     echo "Sorry, there was an error uploading your file.";
   }
 }
+
+
 ?>
