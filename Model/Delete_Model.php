@@ -22,6 +22,25 @@ if (isset($_GET['action'])) {
 	}
 	
 }
+if (isset($_GET['deleteBillDetail'])) {
+	$id= $_GET['id'];
+	
+	$conn = Connect();
+	$sql = "DELETE FROM bill_detail WHERE id_bill = $id ";
+
+	if ($conn->query($sql) === TRUE) {
+		echo '<script>alert("delete thành công")</script>';
+		//header("Location: http://localhost/WebBanhMi/admin_index.php");
+		echo '<script>window.location.href = "http://localhost/WebBanhMi/admin_bill_detail.php"</script> ';
+	} else {
+ // echo "Error deleting record: " . $conn->error;
+		echo '<script>alert("Error deleting record: " . $conn->error)</script>';
+		//header("Location: http://localhost/WebBanhMi/admin_index.php");
+		echo '<script>window.location.href = "http://localhost/WebBanhMi/admin_bill_detail.php"</script> ';
+	}
+	$conn->close();
+	
+}
 
 if (isset($_GET['user'])) {
 	$id= $_GET['id'];

@@ -67,6 +67,7 @@ tr:nth-child(even) {
 						<li><a href="./admin_type.php">Type sản phẩm</a></li>
 						<li><a href="./admin_user.php">user</a></li>
 						<li><a href="./admin_bill.php">bill</a></li>
+						<li><a href="./admin_bill_detail.php">Bill_detail</a></li>
 					</ul>
 					<div class="clearfix"></div>
 				</nav>

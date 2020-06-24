@@ -27,6 +27,36 @@ function getAllUser(){
 	}
 	return $arrUser ;
 }
+function getBillDetail(){
+	$arrBill = array();
+	$conn = Connect();
+	$sql = 'SELECT bills.id, id_product,products.name, quantity FROM bill_detail, bills ,products WHERE bill_detail.id_bill = bills.id and bill_detail.id_product = products.id';
+	// $sql = 'SELECT users.full_name, bills.created_at, bill_detail.unit_price 
+	// FROM ((bills 
+	// INNER JOIN users ON bills.id_customer = users.id) 
+	// INNER JOIN bill_detail ON bills.id = bill_detail.id_bill)';
+//echo $sql;
+	$result = $conn->query($sql);
+
+	if ($result->num_rows > 0) {
+										  // output data of each row
+		while($row = $result->fetch_assoc()) {
+			$Bill = array(
+			"id_bill" => $row["id"],
+			//"id_customer" =>  $row["id_customer"],
+				"id_product" => $row["id_product"],
+			"name" => $row["name"],
+		"quantity" => $row["quantity"]
+			//"id_product" => $row["id_product"],
+			//"quantity" => $row["quantity"]
+			);
+			array_push($arrBill, $Bill);
+		}
+	} else {
+		return $arrBill ;
+	}
+	return $arrBill ;
+}
 function getBill(){
 	$arrBill = array();
 	$conn = Connect();
