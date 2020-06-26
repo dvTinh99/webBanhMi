@@ -1,7 +1,7 @@
 <?php
 
 require_once('ConnectToDB.php');
-require_once('Bean/User.php');
+//require_once('Bean/User.php');
 
 function getAllUser(){
 	$arrUser = array();

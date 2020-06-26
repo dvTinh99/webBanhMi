@@ -1,6 +1,5 @@
 <?php 
 include("include/header.php");
-
 ?>
 
 	<div class="inner-header">
